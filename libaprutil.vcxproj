@@ -32,9 +32,13 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\apr\libapr.props" />
+    <Import Project="..\apr-iconv\libapriconv.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\apr\libapr.props" />
+    <Import Project="..\apr-iconv\libapriconv.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -50,7 +54,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;APU_DECLARE_EXPORT;APU_USE_SDBM;XML_STATIC;WIN32;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(SolutionDir)\apr\include;$(ProjectDir)\include\private;$(SolutionDir)\apr-iconv\include;$(ProjectDir)\dbm\sdbm;$(ProjectDir)\xml\expat\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir)\include\private;$(ProjectDir)\dbm\sdbm;$(ProjectDir)\xml\expat\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -65,7 +69,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;APU_DECLARE_EXPORT;APU_USE_SDBM;XML_STATIC;WIN32;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(SolutionDir)\apr\include;$(ProjectDir)\include\private;$(SolutionDir)\apr-iconv\include;$(ProjectDir)\dbm\sdbm;$(ProjectDir)\xml\expat\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir)\include\private;$(ProjectDir)\dbm\sdbm;$(ProjectDir)\xml\expat\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -244,12 +248,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\apr\libapr.vcxproj">
-      <Project>{0feb7a6c-4e56-b2f7-f791-1d0348b23344}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\apr-iconv\libapriconv.vcxproj">
-      <Project>{229a821f-7635-4b26-b0fc-01857e7e2c3b}</Project>
-    </ProjectReference>
+    <None Include="libaprutil.props" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
