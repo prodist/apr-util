@@ -14,10 +14,7 @@
     <ProjectGuid>{C72FFFDD-2B57-47E0-8164-EB9CC3265DF1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
-  <PropertyGroup>
-    <RootFolder>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),Prodist.Cpp.Default.props))</RootFolder>
-  </PropertyGroup>
-  <Import Project="$(RootFolder)\Prodist.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
